@@ -52,10 +52,18 @@ export default function TanzifSharikaatPage() {
       <div className="container mx-auto px-4 mt-16 max-w-6xl">
         {/* معرض صور الأيقونات — شبكة 2x2 */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center mb-16">
-          <Image src="https://cleanajwa.com/wp-content/uploads/2026/03/1.png" alt="أيقونة خدمة تنظيف المنازل من شركة أجواء" width={128} height={128} sizes="(max-width: 768px) 96px, 128px" className="w-24 h-24 md:w-32 md:h-32 object-contain" quality={85} loading="lazy" />
-          <Image src="https://cleanajwa.com/wp-content/uploads/2026/03/2.png" alt="أيقونة التواصل مع شركة أجواء للنظافة" width={128} height={128} sizes="(max-width: 768px) 96px, 128px" className="w-24 h-24 md:w-32 md:h-32 object-contain" quality={85} loading="lazy" />
-          <Image src="https://cleanajwa.com/wp-content/uploads/2026/03/3.png" alt="أيقونة خدمة مكافحة الحشرات من شركة أجواء" width={128} height={128} sizes="(max-width: 768px) 96px, 128px" className="w-24 h-24 md:w-32 md:h-32 object-contain" quality={85} loading="lazy" />
-          <Image src="https://cleanajwa.com/wp-content/uploads/2026/03/4.png" alt="أيقونة خدمة تنظيف الشركات من شركة أجواء" width={128} height={128} sizes="(max-width: 768px) 96px, 128px" className="w-24 h-24 md:w-32 md:h-32 object-contain" quality={85} loading="lazy" />
+          <div className="relative w-40 h-40 md:w-56 md:h-56 transform hover:scale-110 hover:-translate-y-2 transition-all duration-500 hover:drop-shadow-2xl cursor-pointer bg-white rounded-3xl p-4 shadow-sm border border-gray-100 flex justify-center items-center">
+            <Image src="https://cleanajwa.com/wp-content/uploads/2026/03/1.png" alt="أيقونة خدمة تنظيف المنازل من شركة أجواء" fill sizes="(max-width: 768px) 160px, 224px" className="object-contain p-4" quality={85} loading="lazy" />
+          </div>
+          <div className="relative w-40 h-40 md:w-56 md:h-56 transform hover:scale-110 hover:-translate-y-2 transition-all duration-500 hover:drop-shadow-2xl cursor-pointer bg-white rounded-3xl p-4 shadow-sm border border-gray-100 flex justify-center items-center">
+            <Image src="https://cleanajwa.com/wp-content/uploads/2026/03/2.png" alt="أيقونة التواصل مع شركة أجواء للنظافة" fill sizes="(max-width: 768px) 160px, 224px" className="object-contain p-4" quality={85} loading="lazy" />
+          </div>
+          <div className="relative w-40 h-40 md:w-56 md:h-56 transform hover:scale-110 hover:-translate-y-2 transition-all duration-500 hover:drop-shadow-2xl cursor-pointer bg-white rounded-3xl p-4 shadow-sm border border-gray-100 flex justify-center items-center">
+            <Image src="https://cleanajwa.com/wp-content/uploads/2026/03/3.png" alt="أيقونة خدمة مكافحة الحشرات من شركة أجواء" fill sizes="(max-width: 768px) 160px, 224px" className="object-contain p-4" quality={85} loading="lazy" />
+          </div>
+          <div className="relative w-40 h-40 md:w-56 md:h-56 transform hover:scale-110 hover:-translate-y-2 transition-all duration-500 hover:drop-shadow-2xl cursor-pointer bg-white rounded-3xl p-4 shadow-sm border border-gray-100 flex justify-center items-center">
+            <Image src="https://cleanajwa.com/wp-content/uploads/2026/03/4.png" alt="أيقونة خدمة تنظيف الشركات من شركة أجواء" fill sizes="(max-width: 768px) 160px, 224px" className="object-contain p-4" quality={85} loading="lazy" />
+          </div>
         </div>
 
         {/* قسم أول — نص يمين، صورة banner عريضة أسفله */}
