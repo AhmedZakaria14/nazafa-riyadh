@@ -17,7 +17,7 @@ export default function FloatingContactButtons() {
     {
       id: 'whatsapp',
       icon: <MessageCircle className="w-6 h-6 md:w-7 md:h-7" />,
-      href: 'https://api.whatsapp.com/send/?phone=966533263551',
+      href: 'https://api.whatsapp.com/send/?phone=966537106102',
       color: 'bg-green-500',
       label: 'واتساب',
       delay: 0.1,
@@ -25,7 +25,7 @@ export default function FloatingContactButtons() {
     {
       id: 'phone',
       icon: <Phone className="w-6 h-6 md:w-7 md:h-7" />,
-      href: 'tel:0533263551',
+      href: 'tel:0537106102',
       color: 'bg-blue-600',
       label: 'اتصال',
       delay: 0.2,

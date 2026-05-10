@@ -5,7 +5,7 @@ import { CheckCircle2 } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'تنظيف المنازل والفلل بالرياض | شركة أجواء',
-  description: 'خدمة تنظيف المنازل والفلل الشاملة في الرياض من شركة أجواء. تنظيف عميق، تعقيم، جلي رخام بأحدث المعدات. اتصل الآن: 0533263551',
+  description: 'خدمة تنظيف المنازل والفلل الشاملة في الرياض من شركة أجواء. تنظيف عميق، تعقيم، جلي رخام بأحدث المعدات. اتصل الآن: 0537106102',
   keywords: 'تنظيف منازل الرياض، تنظيف فلل بالرياض، شركة تنظيف منازل، جلي رخام الرياض',
   alternates: {
     canonical: 'https://cleanajwa.com/tanzif-manazil',
@@ -21,7 +21,7 @@ export default function TanzifManazilPage() {
     provider: {
       '@type': 'LocalBusiness',
       name: 'شركة أجواء للنظافة والتعقيم الشامل',
-      telephone: '0533263551',
+      telephone: '0537106102',
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'الرياض',

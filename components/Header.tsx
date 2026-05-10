@@ -8,7 +8,7 @@ export default function Header() {
         {/* زر واتساب يمين */}
         <div className="flex-shrink-0 order-1 md:order-3">
           <a
-            href="https://api.whatsapp.com/send/?phone=966533263551"
+            href="https://api.whatsapp.com/send/?phone=966537106102"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center gap-2"

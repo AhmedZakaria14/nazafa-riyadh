@@ -5,7 +5,7 @@ import { CheckCircle2 } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'مكافحة الحشرات والقوارض بالرياض | شركة أجواء',
-  description: 'مكافحة حشرات احترافية بالرياض من شركة أجواء. إبادة نهائية للحشرات الزاحفة والطائرة والقوارض بمبيدات آمنة. اتصل: 0533263551',
+  description: 'مكافحة حشرات احترافية بالرياض من شركة أجواء. إبادة نهائية للحشرات الزاحفة والطائرة والقوارض بمبيدات آمنة. اتصل: 0537106102',
   keywords: 'مكافحة حشرات الرياض، رش مبيدات الرياض، شركة مكافحة حشرات، إبادة حشرات',
   alternates: {
     canonical: 'https://cleanajwa.com/mokafahat-hasharaat',
@@ -22,7 +22,7 @@ export default function MokafahatHasharaatPage() {
     provider: {
       '@type': 'LocalBusiness',
       name: 'شركة أجواء للنظافة والتعقيم الشامل',
-      telephone: '0533263551',
+      telephone: '0537106102',
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'الرياض',

@@ -5,7 +5,7 @@ import { CheckCircle2 } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'تنظيف الشركات والمكاتب بالرياض | شركة أجواء',
-  description: 'خدمة تنظيف الشركات والمكاتب الاحترافية بالرياض من شركة أجواء. تعقيم وتنظيف يومي وأسبوعي. اتصل: 0533263551',
+  description: 'خدمة تنظيف الشركات والمكاتب الاحترافية بالرياض من شركة أجواء. تعقيم وتنظيف يومي وأسبوعي. اتصل: 0537106102',
   keywords: 'تنظيف شركات الرياض، تنظيف مكاتب الرياض، شركة تنظيف مؤسسات، تعقيم مكاتب',
   alternates: {
     canonical: 'https://cleanajwa.com/tanzif-sharikaat',
@@ -22,7 +22,7 @@ export default function TanzifSharikaatPage() {
     provider: {
       '@type': 'LocalBusiness',
       name: 'شركة أجواء للنظافة والتعقيم الشامل',
-      telephone: '0533263551',
+      telephone: '0537106102',
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'الرياض',
