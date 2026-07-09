@@ -1,14 +1,36 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import CTAButtons from '@/components/CTAButtons';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, Home, Building2, Bug, Headset } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'مكافحة الحشرات والقوارض بالرياض | شركة أجواء',
   description: 'مكافحة حشرات احترافية بالرياض من شركة أجواء. إبادة نهائية للحشرات الزاحفة والطائرة والقوارض بمبيدات آمنة. اتصل: 0533263551',
-  keywords: 'مكافحة حشرات الرياض، رش مبيدات الرياض، شركة مكافحة حشرات، إبادة حشرات',
+  keywords: 'مكافحة حشرات الرياض, رش مبيدات بالرياض, شركة مكافحة حشرات, إبادة حشرات, مكافحة النمل الأبيض, مكافحة صراصير بالرياض, مكافحة بق الفراش, رش دفان',
   alternates: {
     canonical: 'https://cleanajwa.com/mokafahat-hasharaat',
+  },
+  openGraph: {
+    title: 'مكافحة الحشرات والقوارض بالرياض | شركة أجواء',
+    description: 'مكافحة حشرات احترافية بالرياض من شركة أجواء. إبادة نهائية للحشرات الزاحفة والطائرة والقوارض بمبيدات آمنة.',
+    url: 'https://cleanajwa.com/mokafahat-hasharaat',
+    siteName: 'شركة أجواء',
+    locale: 'ar_SA',
+    type: 'website',
+    images: [
+      {
+        url: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783584134/Professional-Pest-Control-Technician-1_wajt1x.webp',
+        width: 1200,
+        height: 630,
+        alt: 'مكافحة الحشرات والقوارض بالرياض',
+      }
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'مكافحة الحشرات والقوارض بالرياض | شركة أجواء',
+    description: 'مكافحة حشرات احترافية بالرياض من شركة أجواء. إبادة نهائية للحشرات الزاحفة والطائرة والقوارض بمبيدات آمنة.',
+    images: ['https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783584134/Professional-Pest-Control-Technician-1_wajt1x.webp'],
   }
 };
 
@@ -52,17 +74,21 @@ export default function MokafahatHasharaatPage() {
       <div className="container mx-auto px-4 mt-16 max-w-6xl">
         {/* معرض أيقونات — نفس شبكة 2x2 من تنظيف الشركات */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center mb-16">
-          <div className="relative w-40 h-40 md:w-56 md:h-56 transform hover:scale-110 hover:-translate-y-2 transition-all duration-500 hover:drop-shadow-2xl cursor-pointer bg-white rounded-3xl p-4 shadow-sm border border-gray-100 flex justify-center items-center">
-            <Image src="https://cleanajwa.com/wp-content/uploads/2026/03/1.png" alt="أيقونة خدمة تنظيف المنازل من شركة أجواء" fill sizes="(max-width: 768px) 160px, 224px" className="object-contain p-4" quality={85} loading="lazy" />
+          <div className="relative w-40 h-40 md:w-56 md:h-56 transform hover:scale-110 hover:-translate-y-2 transition-all duration-500 hover:drop-shadow-2xl cursor-pointer bg-white rounded-3xl p-4 shadow-sm border border-gray-100 flex flex-col justify-center items-center group gap-4">
+            <Home className="w-16 h-16 md:w-20 md:h-20 text-blue-600 group-hover:text-blue-800 transition-colors" strokeWidth={1.5} />
+            <span className="text-gray-800 font-bold md:text-lg group-hover:text-blue-800 transition-colors">تنظيف المنازل</span>
           </div>
-          <div className="relative w-40 h-40 md:w-56 md:h-56 transform hover:scale-110 hover:-translate-y-2 transition-all duration-500 hover:drop-shadow-2xl cursor-pointer bg-white rounded-3xl p-4 shadow-sm border border-gray-100 flex justify-center items-center">
-            <Image src="https://cleanajwa.com/wp-content/uploads/2026/03/2.png" alt="أيقونة التواصل مع شركة أجواء للنظافة" fill sizes="(max-width: 768px) 160px, 224px" className="object-contain p-4" quality={85} loading="lazy" />
+          <div className="relative w-40 h-40 md:w-56 md:h-56 transform hover:scale-110 hover:-translate-y-2 transition-all duration-500 hover:drop-shadow-2xl cursor-pointer bg-white rounded-3xl p-4 shadow-sm border border-gray-100 flex flex-col justify-center items-center group gap-4">
+            <Building2 className="w-16 h-16 md:w-20 md:h-20 text-blue-600 group-hover:text-blue-800 transition-colors" strokeWidth={1.5} />
+            <span className="text-gray-800 font-bold md:text-lg group-hover:text-blue-800 transition-colors">تنظيف الشركات</span>
           </div>
-          <div className="relative w-40 h-40 md:w-56 md:h-56 transform hover:scale-110 hover:-translate-y-2 transition-all duration-500 hover:drop-shadow-2xl cursor-pointer bg-white rounded-3xl p-4 shadow-sm border border-gray-100 flex justify-center items-center">
-            <Image src="https://cleanajwa.com/wp-content/uploads/2026/03/3.png" alt="أيقونة خدمة مكافحة الحشرات من شركة أجواء" fill sizes="(max-width: 768px) 160px, 224px" className="object-contain p-4" quality={85} loading="lazy" />
+          <div className="relative w-40 h-40 md:w-56 md:h-56 transform hover:scale-110 hover:-translate-y-2 transition-all duration-500 hover:drop-shadow-2xl cursor-pointer bg-white rounded-3xl p-4 shadow-sm border border-gray-100 flex flex-col justify-center items-center group gap-4">
+            <Bug className="w-16 h-16 md:w-20 md:h-20 text-blue-600 group-hover:text-blue-800 transition-colors" strokeWidth={1.5} />
+            <span className="text-gray-800 font-bold md:text-lg group-hover:text-blue-800 transition-colors">مكافحة الحشرات</span>
           </div>
-          <div className="relative w-40 h-40 md:w-56 md:h-56 transform hover:scale-110 hover:-translate-y-2 transition-all duration-500 hover:drop-shadow-2xl cursor-pointer bg-white rounded-3xl p-4 shadow-sm border border-gray-100 flex justify-center items-center">
-            <Image src="https://cleanajwa.com/wp-content/uploads/2026/03/4.png" alt="أيقونة خدمة تنظيف الشركات من شركة أجواء" fill sizes="(max-width: 768px) 160px, 224px" className="object-contain p-4" quality={85} loading="lazy" />
+          <div className="relative w-40 h-40 md:w-56 md:h-56 transform hover:scale-110 hover:-translate-y-2 transition-all duration-500 hover:drop-shadow-2xl cursor-pointer bg-white rounded-3xl p-4 shadow-sm border border-gray-100 flex flex-col justify-center items-center group gap-4">
+            <Headset className="w-16 h-16 md:w-20 md:h-20 text-blue-600 group-hover:text-blue-800 transition-colors" strokeWidth={1.5} />
+            <span className="text-gray-800 font-bold md:text-lg group-hover:text-blue-800 transition-colors">خدمة العملاء</span>
           </div>
         </div>
 
@@ -70,8 +96,8 @@ export default function MokafahatHasharaatPage() {
         <section className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center py-16">
           <div>
             <Image
-              src="https://cleanajwa.com/wp-content/uploads/2026/03/16345-pest-control-1024x531.avif"
-              alt="خدمة مكافحة الحشرات الاحترافية من شركة أجواء باستخدام أحدث التقنيات في الرياض"
+              src="https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783584134/Professional-Pest-Control-Technician-1_wajt1x.webp"
+              alt="خدمة مكافحة الحشرات الاحترافية من شركة أجواء باستخدام أحدث التقنيات الآمنة في الرياض"
               width={800}
               height={600}
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -136,8 +162,8 @@ export default function MokafahatHasharaatPage() {
           </div>
           <div className="order-1 md:order-2">
             <Image
-              src="https://cleanajwa.com/wp-content/uploads/2026/03/شركة-مكافحة-حشرات-بالاحساء.webp"
-              alt="شركة مكافحة حشرات بالرياض — أجواء للتخلص النهائي من الآفات والقوارض"
+              src="https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783584134/16345-pest-control_kpx7u9.avif"
+              alt="شركة مكافحة حشرات بالرياض — أجواء للتخلص النهائي من الآفات والقوارض بطرق صحية"
               width={800}
               height={600}
               sizes="(max-width: 768px) 100vw, 50vw"

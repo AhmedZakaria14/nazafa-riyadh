@@ -7,7 +7,7 @@ import { ArrowLeft } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'شركة أجواء | أفضل شركة تنظيف منازل وشركات بالرياض',
   description: 'شركة أجواء للنظافة والتعقيم بالرياض. خدمات تنظيف منازل، فلل، شركات ومكافحة حشرات بأحدث التقنيات وأفضل الأسعار. اتصل: 0533263551',
-  keywords: 'شركة نظافة الرياض، تنظيف منازل الرياض، تنظيف فلل الرياض، شركة تنظيف، مكافحة حشرات الرياض، تعقيم شركات، جلي رخام',
+  keywords: 'شركة تنظيف بالرياض, تنظيف منازل الرياض, تنظيف فلل الرياض, شركة تنظيف, مكافحة حشرات الرياض, تعقيم شركات, جلي رخام, تنظيف كنب, غسيل سجاد بالرياض, شركة تعقيم منازل',
   alternates: {
     canonical: 'https://cleanajwa.com',
   },
@@ -18,11 +18,20 @@ export const metadata: Metadata = {
     siteName: 'شركة أجواء',
     locale: 'ar_SA',
     type: 'website',
+    images: [
+      {
+        url: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop',
+        width: 1200,
+        height: 630,
+        alt: 'شركة أجواء لخدمات التنظيف بالرياض',
+      }
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'شركة أجواء | أفضل شركة تنظيف منازل وشركات بالرياض',
     description: 'شركة أجواء للنظافة والتعقيم بالرياض. خدمات تنظيف منازل، فلل، شركات ومكافحة حشرات بأحدث التقنيات وأفضل الأسعار. اتصل: 0533263551',
+    images: ['https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop'],
   }
 };
 
@@ -33,8 +42,8 @@ export default function HomePage() {
       '@type': 'LocalBusiness',
       '@id': 'https://cleanajwa.com/#organization',
       name: 'شركة أجواء للنظافة والتعقيم الشامل',
-      image: 'https://cleanajwa.com/wp-content/uploads/2026/03/اجواء-68x58.png',
-      logo: 'https://cleanajwa.com/wp-content/uploads/2026/03/اجواء-68x58.png',
+      image: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783579020/%D8%B4%D8%B1%D9%83%D8%A9_%D8%A3%D8%AC%D9%88%D8%A7%D8%A1_vot9oq.png',
+      logo: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783579020/%D8%B4%D8%B1%D9%83%D8%A9_%D8%A3%D8%AC%D9%88%D8%A7%D8%A1_vot9oq.png',
       url: 'https://cleanajwa.com',
       telephone: '0533263551',
       address: {
@@ -123,8 +132,8 @@ export default function HomePage() {
             {/* Hero Image (LCP Optimized) */}
             <div className="hidden lg:block relative h-[550px] w-full rounded-[2.5rem] overflow-hidden shadow-2xl transform hover:-translate-y-2 transition-transform duration-500 border-4 border-white/10">
               <Image
-                src="https://cleanajwa.com/wp-content/uploads/2026/03/1-13.jpg"
-                alt="فريق شركة أجواء يقدم خدمات النظافة والتعقيم الشامل للمنازل والشركات بالرياض"
+                src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop"
+                alt="فريق تنظيف شركة أجواء يقدم خدمات النظافة العميقة والتعقيم الشامل للمنازل والشركات بالرياض بأعلى معايير الجودة"
                 fill
                 priority
                 sizes="50vw"
@@ -152,8 +161,8 @@ export default function HomePage() {
             <div className="group bg-white rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-300 ease-in-out overflow-hidden flex flex-col border border-gray-100 transform hover:-translate-y-2">
               <div className="relative h-64 w-full overflow-hidden bg-gray-200">
                 <Image
-                  src="https://cleanajwa.com/wp-content/uploads/2026/03/1.png"
-                  alt="خدمة تنظيف المنازل والفلل من شركة أجواء بالرياض"
+                  src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=80&w=1974&auto=format&fit=crop"
+                  alt="خدمات تنظيف المنازل والفلل بالرياض تنظيف عميق وجلي رخام من شركة أجواء"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
@@ -181,8 +190,8 @@ export default function HomePage() {
             <div className="group bg-white rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-300 ease-in-out overflow-hidden flex flex-col border border-gray-100 transform hover:-translate-y-2">
               <div className="relative h-64 w-full overflow-hidden bg-gray-200">
                 <Image
-                  src="https://cleanajwa.com/wp-content/uploads/2026/03/4.png"
-                  alt="خدمة تنظيف الشركات والمكاتب من شركة أجواء بالرياض"
+                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop"
+                  alt="شركة تنظيف شركات ومكاتب بالرياض خدمات تعقيم ونظافة دورية من أجواء"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
@@ -210,8 +219,8 @@ export default function HomePage() {
             <div className="group bg-white rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-300 ease-in-out overflow-hidden flex flex-col border border-gray-100 transform hover:-translate-y-2">
               <div className="relative h-64 w-full overflow-hidden bg-gray-200">
                 <Image
-                  src="https://cleanajwa.com/wp-content/uploads/2026/03/3.png"
-                  alt="خدمة مكافحة الحشرات والقوارض من شركة أجواء بالرياض"
+                  src="https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783584134/Professional-Pest-Control-Technician-1_wajt1x.webp"
+                  alt="مكافحة الحشرات والقوارض بالرياض بأحدث المبيدات الآمنة والفعالة شركة أجواء"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
@@ -244,14 +253,13 @@ export default function HomePage() {
         <div className="container mx-auto px-4 relative z-10 text-center max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-10 tracking-tight">نحن هنا لخدمتكم على مدار الساعة</h2>
           <div className="flex justify-center items-center">
-            {/* Fixed size container for the icon to prevent stretching */}
-            <div className="relative w-48 h-48 md:w-64 md:h-64 transform hover:scale-110 hover:-translate-y-2 transition-all duration-500 drop-shadow-2xl cursor-pointer">
+            <div className="relative w-48 h-48 md:w-64 md:h-64 transform hover:scale-105 hover:-translate-y-2 transition-all duration-500 shadow-2xl cursor-pointer rounded-full border-8 border-blue-50 overflow-hidden">
               <Image
-                src="https://cleanajwa.com/wp-content/uploads/2026/03/2.png"
-                alt="أيقونة التواصل مع خدمة عملاء شركة أجواء للنظافة بالرياض"
+                src="https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783579020/%D8%B4%D8%B1%D9%83%D8%A9_%D8%A3%D8%AC%D9%88%D8%A7%D8%A1_vot9oq.png"
+                alt="فريق خدمة عملاء شركة أجواء متاح على مدار الساعة في الرياض"
                 fill
                 sizes="(max-width: 768px) 192px, 256px"
-                className="object-contain"
+                className="object-contain bg-white p-4"
                 quality={100}
                 loading="lazy"
               />

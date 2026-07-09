@@ -1,14 +1,36 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import CTAButtons from '@/components/CTAButtons';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, Home, Building2, Bug, Headset } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'تنظيف الشركات والمكاتب بالرياض | شركة أجواء',
   description: 'خدمة تنظيف الشركات والمكاتب الاحترافية بالرياض من شركة أجواء. تعقيم وتنظيف يومي وأسبوعي. اتصل: 0533263551',
-  keywords: 'تنظيف شركات الرياض، تنظيف مكاتب الرياض، شركة تنظيف مؤسسات، تعقيم مكاتب',
+  keywords: 'تنظيف شركات الرياض, تنظيف مكاتب بالرياض, شركة تنظيف مؤسسات, تعقيم مكاتب, تنظيف مستودعات, تنظيف معارض بالرياض, عقود تنظيف شركات',
   alternates: {
     canonical: 'https://cleanajwa.com/tanzif-sharikaat',
+  },
+  openGraph: {
+    title: 'تنظيف الشركات والمكاتب بالرياض | شركة أجواء',
+    description: 'خدمة تنظيف الشركات والمكاتب الاحترافية بالرياض من شركة أجواء. تعقيم وتنظيف يومي وأسبوعي.',
+    url: 'https://cleanajwa.com/tanzif-sharikaat',
+    siteName: 'شركة أجواء',
+    locale: 'ar_SA',
+    type: 'website',
+    images: [
+      {
+        url: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop',
+        width: 1200,
+        height: 630,
+        alt: 'تنظيف شركات ومكاتب بالرياض',
+      }
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'تنظيف الشركات والمكاتب بالرياض | شركة أجواء',
+    description: 'خدمة تنظيف الشركات والمكاتب الاحترافية بالرياض من شركة أجواء. تعقيم وتنظيف يومي وأسبوعي.',
+    images: ['https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop'],
   }
 };
 
@@ -52,17 +74,21 @@ export default function TanzifSharikaatPage() {
       <div className="container mx-auto px-4 mt-16 max-w-6xl">
         {/* معرض صور الأيقونات — شبكة 2x2 */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center mb-16">
-          <div className="relative w-40 h-40 md:w-56 md:h-56 transform hover:scale-110 hover:-translate-y-2 transition-all duration-500 hover:drop-shadow-2xl cursor-pointer bg-white rounded-3xl p-4 shadow-sm border border-gray-100 flex justify-center items-center">
-            <Image src="https://cleanajwa.com/wp-content/uploads/2026/03/1.png" alt="أيقونة خدمة تنظيف المنازل من شركة أجواء" fill sizes="(max-width: 768px) 160px, 224px" className="object-contain p-4" quality={85} loading="lazy" />
+          <div className="relative w-40 h-40 md:w-56 md:h-56 transform hover:scale-110 hover:-translate-y-2 transition-all duration-500 hover:drop-shadow-2xl cursor-pointer bg-white rounded-3xl p-4 shadow-sm border border-gray-100 flex flex-col justify-center items-center group gap-4">
+            <Home className="w-16 h-16 md:w-20 md:h-20 text-blue-600 group-hover:text-blue-800 transition-colors" strokeWidth={1.5} />
+            <span className="text-gray-800 font-bold md:text-lg group-hover:text-blue-800 transition-colors">تنظيف المنازل</span>
           </div>
-          <div className="relative w-40 h-40 md:w-56 md:h-56 transform hover:scale-110 hover:-translate-y-2 transition-all duration-500 hover:drop-shadow-2xl cursor-pointer bg-white rounded-3xl p-4 shadow-sm border border-gray-100 flex justify-center items-center">
-            <Image src="https://cleanajwa.com/wp-content/uploads/2026/03/2.png" alt="أيقونة التواصل مع شركة أجواء للنظافة" fill sizes="(max-width: 768px) 160px, 224px" className="object-contain p-4" quality={85} loading="lazy" />
+          <div className="relative w-40 h-40 md:w-56 md:h-56 transform hover:scale-110 hover:-translate-y-2 transition-all duration-500 hover:drop-shadow-2xl cursor-pointer bg-white rounded-3xl p-4 shadow-sm border border-gray-100 flex flex-col justify-center items-center group gap-4">
+            <Building2 className="w-16 h-16 md:w-20 md:h-20 text-blue-600 group-hover:text-blue-800 transition-colors" strokeWidth={1.5} />
+            <span className="text-gray-800 font-bold md:text-lg group-hover:text-blue-800 transition-colors">تنظيف الشركات</span>
           </div>
-          <div className="relative w-40 h-40 md:w-56 md:h-56 transform hover:scale-110 hover:-translate-y-2 transition-all duration-500 hover:drop-shadow-2xl cursor-pointer bg-white rounded-3xl p-4 shadow-sm border border-gray-100 flex justify-center items-center">
-            <Image src="https://cleanajwa.com/wp-content/uploads/2026/03/3.png" alt="أيقونة خدمة مكافحة الحشرات من شركة أجواء" fill sizes="(max-width: 768px) 160px, 224px" className="object-contain p-4" quality={85} loading="lazy" />
+          <div className="relative w-40 h-40 md:w-56 md:h-56 transform hover:scale-110 hover:-translate-y-2 transition-all duration-500 hover:drop-shadow-2xl cursor-pointer bg-white rounded-3xl p-4 shadow-sm border border-gray-100 flex flex-col justify-center items-center group gap-4">
+            <Bug className="w-16 h-16 md:w-20 md:h-20 text-blue-600 group-hover:text-blue-800 transition-colors" strokeWidth={1.5} />
+            <span className="text-gray-800 font-bold md:text-lg group-hover:text-blue-800 transition-colors">مكافحة الحشرات</span>
           </div>
-          <div className="relative w-40 h-40 md:w-56 md:h-56 transform hover:scale-110 hover:-translate-y-2 transition-all duration-500 hover:drop-shadow-2xl cursor-pointer bg-white rounded-3xl p-4 shadow-sm border border-gray-100 flex justify-center items-center">
-            <Image src="https://cleanajwa.com/wp-content/uploads/2026/03/4.png" alt="أيقونة خدمة تنظيف الشركات من شركة أجواء" fill sizes="(max-width: 768px) 160px, 224px" className="object-contain p-4" quality={85} loading="lazy" />
+          <div className="relative w-40 h-40 md:w-56 md:h-56 transform hover:scale-110 hover:-translate-y-2 transition-all duration-500 hover:drop-shadow-2xl cursor-pointer bg-white rounded-3xl p-4 shadow-sm border border-gray-100 flex flex-col justify-center items-center group gap-4">
+            <Headset className="w-16 h-16 md:w-20 md:h-20 text-blue-600 group-hover:text-blue-800 transition-colors" strokeWidth={1.5} />
+            <span className="text-gray-800 font-bold md:text-lg group-hover:text-blue-800 transition-colors">خدمة العملاء</span>
           </div>
         </div>
 
@@ -92,8 +118,8 @@ export default function TanzifSharikaatPage() {
           </ul>
           
           <Image
-            src="https://cleanajwa.com/wp-content/uploads/2026/03/تعقيم-مكاتب-بالشارقة-1536x570-1-1024x380.jpg"
-            alt="تعقيم وتنظيف مكاتب الشركات باحترافية عالية من شركة أجواء بالرياض"
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop"
+            alt="تعقيم وتنظيف مكاتب الشركات والمؤسسات باحترافية عالية من شركة أجواء بالرياض"
             width={1200}
             height={600}
             sizes="100vw"
@@ -110,8 +136,8 @@ export default function TanzifSharikaatPage() {
         <section className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center py-16">
           <div>
             <Image
-              src="https://cleanajwa.com/wp-content/uploads/2026/03/عامل-تنظيف-مكاتب-ومنشآت.jpg"
-              alt="عامل تنظيف شركات ومنشآت تجارية من فريق أجواء المتخصص بالرياض"
+              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+              alt="عامل نظافة محترف ينظف مكاتب ومنشآت تجارية بمدينة الرياض بأعلى جودة"
               width={800}
               height={600}
               sizes="(max-width: 768px) 100vw, 50vw"

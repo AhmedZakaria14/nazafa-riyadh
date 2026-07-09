@@ -40,7 +40,7 @@ export default function Header() {
         <div className="flex-shrink-0 order-2 md:order-1 flex items-center">
           <Link href="/" className="relative block w-20 h-16 md:w-28 md:h-20 transition-transform duration-300 hover:scale-105">
             <Image 
-              src="https://cleanajwa.com/wp-content/uploads/2026/03/اجواء-68x58.png"
+              src="https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783579020/%D8%B4%D8%B1%D9%83%D8%A9_%D8%A3%D8%AC%D9%88%D8%A7%D8%A1_vot9oq.png"
               alt="شعار شركة أجواء للنظافة والتعقيم الشامل"
               fill
               sizes="(max-width: 768px) 80px, 112px"

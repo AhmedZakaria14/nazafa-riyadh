@@ -6,9 +6,31 @@ import { CheckCircle2 } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'تنظيف المنازل والفلل بالرياض | شركة أجواء',
   description: 'خدمة تنظيف المنازل والفلل الشاملة في الرياض من شركة أجواء. تنظيف عميق، تعقيم، جلي رخام بأحدث المعدات. اتصل الآن: 0533263551',
-  keywords: 'تنظيف منازل الرياض، تنظيف فلل بالرياض، شركة تنظيف منازل، جلي رخام الرياض',
+  keywords: 'تنظيف منازل بالرياض, تنظيف فلل بالرياض, شركة تنظيف منازل الرياض, جلي رخام الرياض, تنظيف شقق بالرياض, غسيل كنب ومجالس, تنظيف واجهات منازل',
   alternates: {
     canonical: 'https://cleanajwa.com/tanzif-manazil',
+  },
+  openGraph: {
+    title: 'تنظيف المنازل والفلل بالرياض | شركة أجواء',
+    description: 'خدمة تنظيف المنازل والفلل الشاملة في الرياض من شركة أجواء. تنظيف عميق، تعقيم، جلي رخام بأحدث المعدات.',
+    url: 'https://cleanajwa.com/tanzif-manazil',
+    siteName: 'شركة أجواء',
+    locale: 'ar_SA',
+    type: 'website',
+    images: [
+      {
+        url: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop',
+        width: 1200,
+        height: 630,
+        alt: 'تنظيف منازل وفلل بالرياض',
+      }
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'تنظيف المنازل والفلل بالرياض | شركة أجواء',
+    description: 'خدمة تنظيف المنازل والفلل الشاملة في الرياض من شركة أجواء. تنظيف عميق، تعقيم، جلي رخام بأحدث المعدات.',
+    images: ['https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop'],
   }
 };
 
@@ -53,8 +75,8 @@ export default function TanzifManazilPage() {
         <section className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center py-16">
           <div>
             <Image
-              src="https://cleanajwa.com/wp-content/uploads/2026/03/عامل-تنظيف-مكاتب-ومنشآت-1.jpg"
-              alt="عامل تنظيف منازل وفلل من شركة أجواء يقوم بعمله باحترافية في الرياض"
+              src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop"
+              alt="عامل نظافة محترف من شركة أجواء ينظف فيلا سكنية فاخرة بالرياض باحترافية عالية"
               width={800}
               height={600}
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -120,8 +142,8 @@ export default function TanzifManazilPage() {
           </div>
           <div className="order-1 md:order-2">
             <Image
-              src="https://cleanajwa.com/wp-content/uploads/2026/03/1-13.jpg"
-              alt="تنظيف فلل راقية بالرياض مع جلي الرخام والتعقيم الشامل من شركة أجواء"
+              src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=80&w=1974&auto=format&fit=crop"
+              alt="خدمة تنظيف فلل راقية ومنازل بالرياض مع جلي الرخام والتعقيم الشامل من شركة أجواء"
               width={800}
               height={600}
               sizes="(max-width: 768px) 100vw, 50vw"
