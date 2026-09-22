@@ -1,9 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Tajawal } from 'next/font/google';
 import './globals.css';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import FloatingContactButtons from '@/components/FloatingContactButtons';
+import ClientLayout from '@/components/ClientLayout';
 
 const tajawal = Tajawal({
   subsets: ['arabic'],
@@ -82,12 +80,9 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" className={tajawal.variable}>
       <body className="font-sans bg-gray-50 text-gray-900 min-h-screen flex flex-col" suppressHydrationWarning>
-        <Header />
-        <main className="flex-grow">
+        <ClientLayout>
           {children}
-        </main>
-        <Footer />
-        <FloatingContactButtons />
+        </ClientLayout>
       </body>
     </html>
   );

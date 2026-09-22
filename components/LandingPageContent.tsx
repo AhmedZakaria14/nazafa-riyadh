@@ -648,7 +648,7 @@ export default function LandingPageContent() {
         </section>
 
         {/* قسم الأسئلة المتكررة التفاعلي */}
-        <section id="faqs" className="mt-14">
+        <section id="faqs" className="mt-14 mb-8">
           <div className="text-center max-w-xl mx-auto mb-8">
             <span className="text-xs font-bold text-blue-700 uppercase tracking-widest block mb-1">
               الأسئلة المتكررة
@@ -688,77 +688,33 @@ export default function LandingPageContent() {
             })}
           </div>
         </section>
-
-        {/* تذييل الصفحة المخصص لصفحة الهبوط */}
-        <footer className="mt-16 pt-8 border-t border-slate-200 text-center text-xs text-slate-500 space-y-3">
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-600">
-            <Link href="/" className="hover:text-slate-900 transition-colors">
-              الصفحة الرئيسية للموقع
-            </Link>
-            <span>•</span>
-            <Link href="/tanzif-manazil" className="hover:text-slate-900 transition-colors">
-              تنظيف المنازل
-            </Link>
-            <span>•</span>
-            <Link href="/tanzif-sharikaat" className="hover:text-slate-900 transition-colors">
-              تنظيف الشركات
-            </Link>
-            <span>•</span>
-            <Link href="/mokafahat-hasharaat" className="hover:text-slate-900 transition-colors">
-              مكافحة الحشرات
-            </Link>
-          </div>
-          <p className="text-[11px] text-slate-400 pt-2">
-            جميع الحقوق محفوظة © {new Date().getFullYear()} شركة أجواء – خدمات النظافة والتعقيم المتخصصة بالرياض
-          </p>
-        </footer>
       </main>
 
-      {/* الأزرار العائمة على سطح المكتب */}
-      <div className="fixed left-6 bottom-8 hidden md:flex flex-col gap-2.5 z-50">
-        <a
-          id="side-action-whatsapp"
-          href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent('السلام عليكم، أود حجز باقة تنظيف الشقة 299 ريال.')}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-12 h-12 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center shadow-lg shadow-emerald-600/30 transition-transform hover:scale-105"
-          title="تواصل معنا عبر واتساب"
-        >
-          <MessageCircle className="w-5 h-5 fill-white" />
-        </a>
-        <a
-          id="side-action-call"
-          href={`tel:${phone}`}
-          className="w-12 h-12 rounded-full bg-slate-900 hover:bg-slate-800 text-amber-400 flex items-center justify-center shadow-lg transition-transform hover:scale-105"
-          title="اتصال هاتفي مباشر"
-        >
-          <Phone className="w-5 h-5" />
-        </a>
-      </div>
-
-      {/* شريط الإجراءات السفلي الثابت لشاشات الجوال */}
+      {/* شريط الإجراءات السفلي الثابت (زري التواصل الثابتين) */}
       <div
-        id="landing-mobile-bar"
-        className="fixed bottom-0 inset-x-0 bg-white/95 backdrop-blur-md border-t border-slate-200 p-2.5 px-4 pb-[max(0.625rem,env(safe-area-inset-bottom))] flex gap-2.5 z-50 md:hidden shadow-2xl"
+        id="landing-fixed-bottom-bar"
+        className="fixed bottom-0 inset-x-0 bg-white/95 backdrop-blur-md border-t border-slate-200 p-3 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] z-50 shadow-2xl"
       >
-        <a
-          id="mobile-action-whatsapp"
-          href={createWhatsAppUrl('تنظيف شقة كاملة', '299 ريال')}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1 py-3 px-2 rounded-2xl bg-emerald-600 active:bg-emerald-700 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 shadow-md shadow-emerald-600/20"
-        >
-          <MessageCircle className="w-4 h-4 fill-white" />
-          <span>واتساب (شقة 299 ر.س)</span>
-        </a>
-        <a
-          id="mobile-action-call"
-          href={`tel:${phone}`}
-          className="flex-1 py-3 px-2 rounded-2xl bg-slate-900 active:bg-slate-950 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 shadow-md"
-        >
-          <Phone className="w-4 h-4 text-amber-400" />
-          <span>اتصال: {phone}</span>
-        </a>
+        <div className="max-w-lg mx-auto flex items-center justify-between gap-3">
+          <a
+            id="fixed-action-whatsapp"
+            href={createWhatsAppUrl('تنظيف شقة كاملة', '299 ريال')}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 py-3 px-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md shadow-emerald-600/20 transition-all cursor-pointer"
+          >
+            <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 fill-white shrink-0" />
+            <span>واتساب (شقة 299 ر.س)</span>
+          </a>
+          <a
+            id="fixed-action-call"
+            href={`tel:${phone}`}
+            className="flex-1 py-3 px-4 rounded-2xl bg-slate-900 hover:bg-slate-800 active:bg-slate-950 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
+          >
+            <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 shrink-0" />
+            <span>اتصال: {phone}</span>
+          </a>
+        </div>
       </div>
     </div>
   );
