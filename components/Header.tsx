@@ -25,6 +25,12 @@ export default function Header() {
               <Link href="/" className="hover:text-blue-800 transition-colors">الرئيسية</Link>
             </li>
             <li>
+              <Link href="/landingpage" className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-700 hover:bg-blue-100 hover:text-blue-800 font-bold transition-all text-sm border border-blue-200">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>باقات النظافة (من 299 ر.س)</span>
+              </Link>
+            </li>
+            <li>
               <Link href="/tanzif-manazil" className="hover:text-blue-800 transition-colors">تنظيف المنازل</Link>
             </li>
             <li>
@@ -38,13 +44,13 @@ export default function Header() {
 
         {/* شعار الشركة */}
         <div className="flex-shrink-0 order-2 md:order-1 flex items-center">
-          <Link href="/" className="relative block w-20 h-16 md:w-28 md:h-20 transition-transform duration-300 hover:scale-105">
+          <Link href="/" className="relative block w-14 h-14 md:w-16 md:h-16 transition-transform duration-300 hover:scale-105">
             <Image 
-              src="https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783579020/%D8%B4%D8%B1%D9%83%D8%A9_%D8%A3%D8%AC%D9%88%D8%A7%D8%A1_vot9oq.png"
+              src="/logo.png"
               alt="شعار شركة أجواء للنظافة والتعقيم الشامل"
               fill
-              sizes="(max-width: 768px) 80px, 112px"
-              className="object-contain"
+              sizes="(max-width: 768px) 56px, 64px"
+              className="object-contain drop-shadow-sm"
               priority={true}
               quality={100}
             />

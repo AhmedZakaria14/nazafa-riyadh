@@ -42,8 +42,8 @@ export default function HomePage() {
       '@type': 'LocalBusiness',
       '@id': 'https://cleanajwa.com/#organization',
       name: 'شركة أجواء للنظافة والتعقيم الشامل',
-      image: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783579020/%D8%B4%D8%B1%D9%83%D8%A9_%D8%A3%D8%AC%D9%88%D8%A7%D8%A1_vot9oq.png',
-      logo: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783579020/%D8%B4%D8%B1%D9%83%D8%A9_%D8%A3%D8%AC%D9%88%D8%A7%D8%A1_vot9oq.png',
+      image: 'https://cleanajwa.com/logo.png',
+      logo: 'https://cleanajwa.com/logo.png',
       url: 'https://cleanajwa.com',
       telephone: '0533263551',
       address: {
@@ -253,13 +253,13 @@ export default function HomePage() {
         <div className="container mx-auto px-4 relative z-10 text-center max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-10 tracking-tight">نحن هنا لخدمتكم على مدار الساعة</h2>
           <div className="flex justify-center items-center">
-            <div className="relative w-48 h-48 md:w-64 md:h-64 transform hover:scale-105 hover:-translate-y-2 transition-all duration-500 shadow-2xl cursor-pointer rounded-full border-8 border-blue-50 overflow-hidden">
+            <div className="relative w-48 h-48 md:w-64 md:h-64 transform hover:scale-105 hover:-translate-y-2 transition-all duration-500 shadow-2xl cursor-pointer rounded-full border-8 border-blue-50 overflow-hidden bg-white">
               <Image
-                src="https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783579020/%D8%B4%D8%B1%D9%83%D8%A9_%D8%A3%D8%AC%D9%88%D8%A7%D8%A1_vot9oq.png"
-                alt="فريق خدمة عملاء شركة أجواء متاح على مدار الساعة في الرياض"
+                src="/logo.png"
+                alt="شعار شركة أجواء متاح على مدار الساعة في الرياض"
                 fill
                 sizes="(max-width: 768px) 192px, 256px"
-                className="object-contain bg-white p-4"
+                className="object-contain p-2"
                 quality={100}
                 loading="lazy"
               />

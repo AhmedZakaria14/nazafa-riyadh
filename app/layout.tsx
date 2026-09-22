@@ -37,9 +37,12 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783579020/%D8%B4%D8%B1%D9%83%D8%A9_%D8%A3%D8%AC%D9%88%D8%A7%D8%A1_vot9oq.png',
-    shortcut: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783579020/%D8%B4%D8%B1%D9%83%D8%A9_%D8%A3%D8%AC%D9%88%D8%A7%D8%A1_vot9oq.png',
-    apple: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783579020/%D8%B4%D8%B1%D9%83%D8%A9_%D8%A3%D8%AC%D9%88%D8%A7%D8%A1_vot9oq.png',
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon.png', type: 'image/png' },
+    ],
+    shortcut: '/favicon.png',
+    apple: '/apple-touch-icon.png',
   },
   openGraph: {
     title: 'شركة أجواء | أفضل شركة تنظيف منازل وشركات بالرياض',
@@ -50,9 +53,9 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783579020/%D8%B4%D8%B1%D9%83%D8%A9_%D8%A3%D8%AC%D9%88%D8%A7%D8%A1_vot9oq.png',
-        width: 800,
-        height: 600,
+        url: 'https://cleanajwa.com/logo.png',
+        width: 512,
+        height: 512,
         alt: 'شركة أجواء للتنظيف بالرياض',
       }
     ],
@@ -61,7 +64,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'شركة أجواء | أفضل شركة تنظيف منازل وشركات بالرياض',
     description: 'شركة أجواء للنظافة والتعقيم بالرياض. خدمات تنظيف منازل، فلل، شركات ومكافحة حشرات بأحدث التقنيات وأفضل الأسعار. اتصل: 0533263551',
-    images: ['https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783579020/%D8%B4%D8%B1%D9%83%D8%A9_%D8%A3%D8%AC%D9%88%D8%A7%D8%A1_vot9oq.png'],
+    images: ['https://cleanajwa.com/logo.png'],
   },
   alternates: {
     canonical: 'https://cleanajwa.com',
