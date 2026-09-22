@@ -34,8 +34,20 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-      <div className="container mx-auto px-4 mt-8 pt-8 border-t border-gray-800 text-center text-gray-500">
+      <div className="container mx-auto px-4 mt-8 pt-8 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-right text-xs text-gray-400">
         <p>حقوق النشر © {new Date().getFullYear()} شركة أجواء للنظافة والتعقيم الشامل. جميع الحقوق محفوظة.</p>
+        <p className="inline-flex items-center gap-1.5 text-gray-400">
+          <span>تم التصميم بواسطة</span>
+          <a
+            id="footer-nasharhub-link"
+            href="https://nasharhub.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-blue-400 font-bold transition-colors underline decoration-gray-600 hover:decoration-blue-400 underline-offset-4"
+          >
+            NasharHub
+          </a>
+        </p>
       </div>
     </footer>
   );

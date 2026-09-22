@@ -688,6 +688,22 @@ export default function LandingPageContent() {
             })}
           </div>
         </section>
+
+        {/* توقيع التصميم في نهاية صفحة الهبوط */}
+        <div id="landing-designer-credit" className="mt-14 mb-6 pt-6 border-t border-slate-200/80 text-center text-xs text-slate-500">
+          <div className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm text-slate-600 hover:border-slate-300 transition-colors">
+            <span>تم التصميم بواسطة</span>
+            <a
+              id="landing-nasharhub-link"
+              href="https://nasharhub.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-700 hover:text-blue-900 font-bold transition-colors underline decoration-blue-300 hover:decoration-blue-600 underline-offset-4"
+            >
+              NasharHub
+            </a>
+          </div>
+        </div>
       </main>
 
       {/* شريط الإجراءات السفلي الثابت (زري التواصل الثابتين) */}
