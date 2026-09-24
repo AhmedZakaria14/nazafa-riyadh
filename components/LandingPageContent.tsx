@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { 
@@ -17,9 +17,25 @@ import {
   ChevronDown, 
   ArrowLeft, 
   ShieldCheck,
-  Zap
+  Zap,
+  Heart,
+  Search,
+  Send,
+  Calendar
 } from 'lucide-react';
-import { trackTikTokEvent } from '@/lib/tiktok';
+import { 
+  identifyTikTokUser,
+  trackViewContent,
+  trackAddToWishlist,
+  trackSearch,
+  trackAddPaymentInfo,
+  trackAddToCart,
+  trackInitiateCheckout,
+  trackPlaceAnOrder,
+  trackCompleteRegistration,
+  trackPurchase,
+  trackTikTokEvent 
+} from '@/lib/tiktok';
 
 interface PackageItem {
   id: string;
@@ -112,21 +128,27 @@ const PACKAGES: PackageItem[] = [
 
 const ADDITIONAL_SERVICES = [
   {
+    id: 'sofa-steam',
     name: 'غسيل مجالس وكنب بالبخار الحار',
     price: '199 ر.س',
+    numericPrice: 199,
     tag: 'تجفيف سريع في 60 دقيقة',
     desc: 'إزالة أصعب بقع القهوة والدهون بالبخار مع سحب الأتربة العميقة والتعقيم ضد البكتيريا.'
   },
   {
+    id: 'ac-cleaning',
     name: 'غسيل وتنظيف مكيفات سبليت',
     price: '79 ر.س',
+    numericPrice: 79,
     unit: 'للمكيف',
     tag: 'ضمان كفاءة التبريد',
     desc: 'غسيل داخلي وخارجي بمضخات المياه المخصصة مع عزل الجدران وفحص غاز الفريون.'
   },
   {
+    id: 'marble-polishing',
     name: 'جلي وتلميع الرخام الإيطالي بالماس',
     price: '15 ر.س',
+    numericPrice: 15,
     unit: 'للمتر المربع',
     tag: 'طبقة كريستال إسبانية',
     desc: 'معالجة فواصل الرخام وإزالة الخدوش وتلميع الكريستال بطبقة عزل فائقة اللمعان.'
@@ -196,14 +218,140 @@ const FAQS = [
 
 export default function LandingPageContent() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [wishlist, setWishlist] = useState<string[]>([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  
+  // Fast Booking Form State
+  const [bookingName, setBookingName] = useState('');
+  const [bookingPhone, setBookingPhone] = useState('');
+  const [bookingDistrict, setBookingDistrict] = useState('');
+  const [bookingPackage, setBookingPackage] = useState('apartment');
+  const [bookingDate, setBookingDate] = useState('');
+  const [isSubmittingBooking, setIsSubmittingBooking] = useState(false);
 
   const phone = '0575386029';
   const whatsappNumber = '966575386029';
+
+  // 1. TikTok ViewContent Event on Landing Page Load
+  useEffect(() => {
+    trackViewContent({
+      content_id: 'cleaning-packages-riyadh',
+      content_type: 'product_group',
+      content_name: 'عروض وباقات تنظيف المنازل والفلل بالرياض',
+      value: 299,
+      currency: 'SAR',
+    });
+  }, []);
 
   const createWhatsAppUrl = (serviceName: string, priceStr: string) => {
     const text = `السلام عليكم، أود حجز ${serviceName} بسعر ${priceStr} المعلن في شركة أجواء.`;
     return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
   };
+
+  // 2. Wishlist handler with TikTok AddToWishlist event
+  const toggleWishlist = (pkg: PackageItem) => {
+    const isAlreadySaved = wishlist.includes(pkg.id);
+    if (!isAlreadySaved) {
+      setWishlist(prev => [...prev, pkg.id]);
+      trackAddToWishlist({
+        content_id: pkg.id,
+        content_type: 'product',
+        content_name: pkg.name,
+        value: pkg.price,
+        currency: 'SAR',
+      });
+    } else {
+      setWishlist(prev => prev.filter(id => id !== pkg.id));
+    }
+  };
+
+  // 3. Search handler with TikTok Search event
+  const handleSearchChange = (val: string) => {
+    setSearchQuery(val);
+    if (val.trim().length > 1) {
+      trackSearch({
+        search_string: val,
+        content_name: 'بحث في باقات وخدمات التنظيف',
+        value: 299,
+        currency: 'SAR',
+      });
+    }
+  };
+
+  // 4. Fast Online Booking Form with TikTok User Identification & Conversion Events
+  const handleFastBookingSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!bookingPhone.trim()) return;
+
+    setIsSubmittingBooking(true);
+
+    const selectedPkg = PACKAGES.find(p => p.id === bookingPackage) || PACKAGES[0];
+
+    // Client-side PII Hash & Identify
+    await identifyTikTokUser({
+      phone_number: bookingPhone.trim(),
+    });
+
+    // Fire Full Funnel Events
+    trackCompleteRegistration({
+      content_id: selectedPkg.id,
+      content_name: selectedPkg.name,
+      value: selectedPkg.price,
+      currency: 'SAR',
+    });
+
+    trackAddToCart({
+      content_id: selectedPkg.id,
+      content_type: 'product',
+      content_name: selectedPkg.name,
+      value: selectedPkg.price,
+      currency: 'SAR',
+    });
+
+    trackAddPaymentInfo({
+      content_id: selectedPkg.id,
+      content_type: 'product',
+      content_name: selectedPkg.name,
+      value: selectedPkg.price,
+      currency: 'SAR',
+    });
+
+    trackPlaceAnOrder({
+      content_id: selectedPkg.id,
+      content_type: 'product',
+      content_name: selectedPkg.name,
+      value: selectedPkg.price,
+      currency: 'SAR',
+    });
+
+    trackPurchase({
+      content_id: selectedPkg.id,
+      content_type: 'product',
+      content_name: selectedPkg.name,
+      value: selectedPkg.price,
+      currency: 'SAR',
+    });
+
+    // Build WhatsApp message with customer details
+    const textMsg = `السلام عليكم ورحمة الله،
+أود تأكيد حجز خدمة تنظيف:
+📌 الباقة: ${selectedPkg.name} (${selectedPkg.price} ريال)
+👤 الاسم: ${bookingName.trim() || 'عميل محترم'}
+📱 رقم الجوال: ${bookingPhone.trim()}
+📍 الحي / المنطقة: ${bookingDistrict.trim() || 'الرياض'}
+📅 الموعد المفضل: ${bookingDate || 'أقرب وقت متاح'}`;
+
+    const waLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(textMsg)}`;
+    window.open(waLink, '_blank');
+    setIsSubmittingBooking(false);
+  };
+
+  const filteredPackages = PACKAGES.filter(p => 
+    p.name.includes(searchQuery) || 
+    p.subtitle.includes(searchQuery) || 
+    p.summary.includes(searchQuery) ||
+    p.includes.some(inc => inc.includes(searchQuery))
+  );
 
   return (
     <div className="min-h-screen bg-[#f8fafc] text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900 pb-32 sm:pb-24 antialiased">
@@ -317,9 +465,9 @@ export default function LandingPageContent() {
           </div>
         </header>
 
-        {/* قسم الباقات الرئيسية */}
+        {/* قسم الباقات الرئيسية مع محرك البحث والمفضلة */}
         <section id="packages-section" className="mt-10 sm:mt-12">
-          <div className="text-center max-w-xl mx-auto mb-8">
+          <div className="text-center max-w-xl mx-auto mb-6">
             <span className="text-xs font-bold text-blue-700 uppercase tracking-widest block mb-1">
               باقات التنظيف الأساسية
             </span>
@@ -331,9 +479,25 @@ export default function LandingPageContent() {
             </p>
           </div>
 
+          {/* شريط البحث السريع في الباقات */}
+          <div className="max-w-md mx-auto mb-8">
+            <div className="relative">
+              <Search className="w-4 h-4 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => handleSearchChange(e.target.value)}
+                placeholder="ابحث عن باقة أو خدمة محددة (شقة، دور، فيلا، بخار...)"
+                className="w-full pl-4 pr-10 py-2.5 rounded-2xl bg-white border border-slate-200 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
+              />
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
-            {PACKAGES.map((pkg) => {
+            {filteredPackages.map((pkg) => {
               const waUrl = createWhatsAppUrl(pkg.name, `${pkg.price} ريال`);
+              const isSaved = wishlist.includes(pkg.id);
+
               return (
                 <div
                   key={pkg.id}
@@ -342,11 +506,23 @@ export default function LandingPageContent() {
                     pkg.featured ? 'shadow-xl lg:-translate-y-2' : 'shadow-sm hover:shadow-md'
                   }`}
                 >
-                  {pkg.badge && (
-                    <div className={`text-center py-1.5 px-4 text-xs font-bold tracking-wide uppercase ${pkg.badgeColor}`}>
-                      {pkg.badge}
-                    </div>
-                  )}
+                  <div className="flex items-center justify-between">
+                    {pkg.badge ? (
+                      <div className={`py-1.5 px-4 text-xs font-bold tracking-wide uppercase ${pkg.badgeColor} flex-1 text-center`}>
+                        {pkg.badge}
+                      </div>
+                    ) : (
+                      <div className="flex-1" />
+                    )}
+                    <button
+                      type="button"
+                      onClick={() => toggleWishlist(pkg)}
+                      title={isSaved ? 'تمت الإضافة للمفضلة' : 'حفظ في المفضلة'}
+                      className="p-2 hover:bg-slate-100 transition-colors text-slate-400 hover:text-red-500 absolute left-3 top-2 rounded-full z-10"
+                    >
+                      <Heart className={`w-4 h-4 ${isSaved ? 'fill-red-500 text-red-500' : ''}`} />
+                    </button>
+                  </div>
 
                   <div className="p-6 sm:p-7 flex-1">
                     <div className="text-center pb-5 border-b border-slate-100">
@@ -401,9 +577,16 @@ export default function LandingPageContent() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => {
-                        trackTikTokEvent('InitiateCheckout', {
-                          content_type: 'product',
+                        trackAddToCart({
                           content_id: pkg.id,
+                          content_type: 'product',
+                          content_name: pkg.name,
+                          value: pkg.price,
+                          currency: 'SAR'
+                        });
+                        trackInitiateCheckout({
+                          content_id: pkg.id,
+                          content_type: 'product',
                           content_name: pkg.name,
                           value: pkg.price,
                           currency: 'SAR'
@@ -433,6 +616,112 @@ export default function LandingPageContent() {
           </div>
         </section>
 
+        {/* نموذج الحجز السريع المباشر وتأكيد الطلب */}
+        <section id="fast-booking-form" className="mt-14">
+          <div className="rounded-3xl bg-white border border-blue-200 shadow-lg p-6 sm:p-10 relative overflow-hidden">
+            <div className="max-w-2xl mx-auto text-center mb-8">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold mb-3">
+                <Zap className="w-3.5 h-3.5 text-emerald-600" />
+                <span>حجز فوري مباشر بدون انتظار</span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-black text-slate-900">
+                احجز موعدك الآن وسيصلك الفريق في الوقت المحدد
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 mt-1">
+                املأ بياناتك وسيقوم منسق الحجوزات بتأكيد موعدك فوراً والدفع بعد المعاينة
+              </p>
+            </div>
+
+            <form onSubmit={handleFastBookingSubmit} className="max-w-2xl mx-auto space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                    الاسم الكريم:
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={bookingName}
+                    onChange={(e) => setBookingName(e.target.value)}
+                    placeholder="مثال: عبد الله السبيعي"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                    رقم الجوال للتواصل: <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    required
+                    dir="ltr"
+                    value={bookingPhone}
+                    onChange={(e) => setBookingPhone(e.target.value)}
+                    placeholder="05XXXXXXXX"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-right font-mono"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                    اختر باقة الخدمة:
+                  </label>
+                  <select
+                    value={bookingPackage}
+                    onChange={(e) => setBookingPackage(e.target.value)}
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                  >
+                    {PACKAGES.map((pkg) => (
+                      <option key={pkg.id} value={pkg.id}>
+                        {pkg.name} - {pkg.price} ريال
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                    الحي / موقع المنزل بالرياض:
+                  </label>
+                  <input
+                    type="text"
+                    value={bookingDistrict}
+                    onChange={(e) => setBookingDistrict(e.target.value)}
+                    placeholder="مثال: حي الياسمين، شمال الرياض"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                  الموعد المفضل (اختياري):
+                </label>
+                <div className="relative">
+                  <Calendar className="w-4 h-4 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2" />
+                  <input
+                    type="text"
+                    value={bookingDate}
+                    onChange={(e) => setBookingDate(e.target.value)}
+                    placeholder="مثال: غداً صباحاً الساعة 9:00 ص"
+                    className="w-full pl-4 pr-10 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                disabled={isSubmittingBooking}
+                className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-blue-700 to-blue-900 hover:from-blue-600 hover:to-blue-800 text-white font-bold text-base shadow-lg shadow-blue-600/25 transition-all flex items-center justify-center gap-2 cursor-pointer mt-2"
+              >
+                <Send className="w-4 h-4" />
+                <span>{isSubmittingBooking ? 'جاري تجهيز الحجز...' : 'تأكيد الحجز الفوري وإرسال الموعد'}</span>
+              </button>
+            </form>
+          </div>
+        </section>
+
         {/* دليل الجودة الفندقية */}
         <section id="detailed-checklist" className="mt-14">
           <div className="rounded-3xl bg-white border border-slate-200 p-6 sm:p-8 shadow-sm">
@@ -448,52 +737,43 @@ export default function LandingPageContent() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
-                <div className="font-bold text-sm text-slate-900 mb-2 pb-2 border-b border-slate-200">
-                  🍳 المطبخ والأسطح
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                <div className="font-bold text-slate-900 text-sm mb-2 flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-blue-600" />
+                  <span>المطبخ وخزائن الأواني</span>
                 </div>
-                <ul className="text-xs text-slate-600 space-y-1.5">
-                  <li>• إزالة الزيوت والدهون المتراكمة</li>
-                  <li>• تنظيف خزائن المطبخ من الداخل والخارج</li>
-                  <li>• تطهير حوض الغسيل والمصارف</li>
-                  <li>• مسح وتلميع السيراميك الجداري</li>
+                <ul className="text-xs text-slate-600 space-y-1.5 leading-relaxed">
+                  <li>• إزالة الدهون المحترقة من الشفاط والأفران</li>
+                  <li>• غسيل وتطهير المغسلة وتعقيم الخلاطات</li>
+                  <li>• تلميع دواليب المطبخ من الداخل والخارج</li>
+                  <li>• جلي وتلميع أرضية المطبخ بمطهر معطر</li>
                 </ul>
               </div>
 
-              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
-                <div className="font-bold text-sm text-slate-900 mb-2 pb-2 border-b border-slate-200">
-                  🚿 دورات المياه
+              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                <div className="font-bold text-slate-900 text-sm mb-2 flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600" />
+                  <span>دورات المياه والمغاسل</span>
                 </div>
-                <ul className="text-xs text-slate-600 space-y-1.5">
-                  <li>• غسيل عميق للأرضيات والجدران بالبخار</li>
-                  <li>• إزالة ترسبات الأملاح والتكلسات</li>
-                  <li>• تعقيم المراحيض والمغاسل بنسبة 100%</li>
-                  <li>• تلميع الخلاطات والمرايا الزجاجية</li>
+                <ul className="text-xs text-slate-600 space-y-1.5 leading-relaxed">
+                  <li>• تطهير كامل للأرضيات والجدران بالبخار</li>
+                  <li>• إزالة التكلسات من الشاور والمراحيض</li>
+                  <li>• تلميع المرايا والزجاج بمواد مانعة للبقع</li>
+                  <li>• فتح مجاري التصريف وتعقيمها بالكامل</li>
                 </ul>
               </div>
 
-              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
-                <div className="font-bold text-sm text-slate-900 mb-2 pb-2 border-b border-slate-200">
-                  🛋️ الغرف والصالات
+              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                <div className="font-bold text-slate-900 text-sm mb-2 flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-sky-600" />
+                  <span>الغرف وصالات الاستقبال</span>
                 </div>
-                <ul className="text-xs text-slate-600 space-y-1.5">
-                  <li>• كنس ومسح وتلميع الأرضيات</li>
-                  <li>• إزالة الغبار من الوزرات والأفياش</li>
-                  <li>• مسح الأبواب ومقابض الألمنيوم</li>
-                  <li>• تنظيف حواف الجبس والإنارة السقفية</li>
-                </ul>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
-                <div className="font-bold text-sm text-slate-900 mb-2 pb-2 border-b border-slate-200">
-                  🪟 النوافذ والشبابيك
-                </div>
-                <ul className="text-xs text-slate-600 space-y-1.5">
-                  <li>• غسيل وتلميع الزجاج الداخلي والخارجي</li>
-                  <li>• شفط الأتربة من مجاري الألمنيوم</li>
-                  <li>• غسيل شبك النوافذ من الغبار</li>
-                  <li>• مسح إطارات الشبابيك بالكامل</li>
+                <ul className="text-xs text-slate-600 space-y-1.5 leading-relaxed">
+                  <li>• سحب الأتربة العميقة من الزوايا والوزرات</li>
+                  <li>• تلميع الزجاج والنوافذ ومجاري الألمنيوم</li>
+                  <li>• مسح الأبواب والإنارة ومفاتيح المكيفات</li>
+                  <li>• رش المعطر الفندقي المركز طويل الأمد</li>
                 </ul>
               </div>
             </div>
@@ -515,9 +795,9 @@ export default function LandingPageContent() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {ADDITIONAL_SERVICES.map((srv, idx) => (
+            {ADDITIONAL_SERVICES.map((srv) => (
               <div
-                key={idx}
+                key={srv.id}
                 className="rounded-2xl bg-white border border-slate-200 p-5 shadow-sm hover:border-blue-400 transition-colors flex flex-col justify-between"
               >
                 <div>
@@ -536,11 +816,27 @@ export default function LandingPageContent() {
                   href={createWhatsAppUrl(srv.name, srv.price)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => trackTikTokEvent('Contact', {
-                    channel: 'whatsapp',
-                    service: srv.name,
-                    price: srv.price
-                  })}
+                  onClick={() => {
+                    trackAddToCart({
+                      content_id: srv.id,
+                      content_type: 'product',
+                      content_name: srv.name,
+                      value: srv.numericPrice,
+                      currency: 'SAR'
+                    });
+                    trackInitiateCheckout({
+                      content_id: srv.id,
+                      content_type: 'product',
+                      content_name: srv.name,
+                      value: srv.numericPrice,
+                      currency: 'SAR'
+                    });
+                    trackTikTokEvent('Contact', {
+                      channel: 'whatsapp',
+                      service: srv.name,
+                      price: srv.price
+                    });
+                  }}
                   className="w-full py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 border border-slate-200 text-xs font-bold text-slate-800 flex items-center justify-between transition-colors"
                 >
                   <span>طلب الخدمة عبر واتساب</span>
@@ -578,25 +874,30 @@ export default function LandingPageContent() {
         </section>
 
         {/* شارة الضمان الذهبي */}
-        <div className="mt-10 rounded-2xl bg-blue-50/80 border-2 border-blue-200 p-5 sm:p-6 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-right">
-          <div className="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-md">
-            <ShieldCheck className="w-7 h-7" />
+        <section id="guarantee-section" className="mt-14">
+          <div className="rounded-3xl bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-transparent border border-amber-300/40 p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6">
+            <div className="w-16 h-16 rounded-2xl bg-amber-500 text-slate-950 flex items-center justify-center shrink-0 shadow-md">
+              <ShieldCheck className="w-9 h-9" />
+            </div>
+            <div>
+              <div className="inline-block text-[11px] font-black text-amber-800 uppercase tracking-wider bg-amber-100 px-2.5 py-0.5 rounded-full mb-1">
+                الضمان الذهبي 100%
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1">
+                لا تدفع ريالاً واحداً إلا بعد معاينتك ورضاك التام
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                في حال وجود أي ملاحظة على نظافة أي ركن، يقوم الفريق بإعادة تنظيفه فوراً وبدون أي تكلفة إضافية.
+              </p>
+            </div>
           </div>
-          <div className="flex-1">
-            <h4 className="text-sm sm:text-base font-black text-blue-950 mb-1">
-              الضمان الذهبي لرضا العملاء بنسبة 100%
-            </h4>
-            <p className="text-xs sm:text-sm text-blue-900/80 leading-relaxed">
-              ثقتك هي أولويتنا؛ لن يتم استلام أي مبالغ مالية إلا بعد معاينتك الكاملة لكافة مرافق المنزل، وفي حال وجود أي ملاحظة تتم معالجتها فوراً أو إعادة تنظيف المكان مجاناً.
-            </p>
-          </div>
-        </div>
+        </section>
 
-        {/* تقييمات العملاء */}
-        <section id="reviews" className="mt-14">
+        {/* آراء العملاء */}
+        <section id="testimonials" className="mt-14">
           <div className="text-center max-w-xl mx-auto mb-8">
             <span className="text-xs font-bold text-blue-700 uppercase tracking-widest block mb-1">
-              تقييمات موثقة
+              تجارب العملاء الحقيقية
             </span>
             <h3 className="text-xl sm:text-2xl font-bold text-slate-900">
               ماذا يقول عملاؤنا في أحياء الرياض؟
@@ -610,13 +911,13 @@ export default function LandingPageContent() {
                 className="rounded-2xl bg-white border border-slate-200 p-5 shadow-sm flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center gap-1 text-amber-500 mb-2.5">
-                    {[...Array(rev.rating)].map((_, sIdx) => (
-                      <Star key={sIdx} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                  <div className="flex items-center gap-1 text-amber-400 mb-3">
+                    {[...Array(rev.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-amber-400" />
                     ))}
                   </div>
-                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed mb-4">
-                    “{rev.text}”
+                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed mb-4 italic">
+                    &ldquo;{rev.text}&rdquo;
                   </p>
                 </div>
                 <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
@@ -755,7 +1056,15 @@ export default function LandingPageContent() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => {
-              trackTikTokEvent('InitiateCheckout', {
+              trackAddToCart({
+                content_id: 'apartment',
+                content_type: 'product',
+                content_name: 'تنظيف شقة كاملة',
+                value: 299,
+                currency: 'SAR'
+              });
+              trackInitiateCheckout({
+                content_id: 'apartment',
                 content_type: 'product',
                 content_name: 'تنظيف شقة كاملة',
                 value: 299,

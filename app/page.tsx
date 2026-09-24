@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import CTAButtons from '@/components/CTAButtons';
+import TikTokTracker from '@/components/TikTokTracker';
 import { ArrowLeft } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -99,6 +100,13 @@ export default function HomePage() {
 
   return (
     <main className="min-h-screen bg-gray-50 font-sans">
+      <TikTokTracker
+        contentId="home-cleaning-ajwa"
+        contentType="product_group"
+        contentName="خدمات شركة أجواء للنظافة والتعقيم الشامل بالرياض"
+        value={299}
+        currency="SAR"
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import CTAButtons from '@/components/CTAButtons';
+import TikTokTracker from '@/components/TikTokTracker';
 import { CheckCircle2 } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -58,6 +59,13 @@ export default function TanzifManazilPage() {
 
   return (
     <article className="pb-20">
+      <TikTokTracker
+        contentId="service-tanzif-manazil"
+        contentType="product"
+        contentName="خدمة تنظيف المنازل والفلل بالرياض"
+        value={299}
+        currency="SAR"
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
