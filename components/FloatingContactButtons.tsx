@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { Phone, MessageCircle } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { trackTikTokEvent } from '@/lib/tiktok';
 
 export default function FloatingContactButtons() {
   const [isVisible, setIsVisible] = useState(false);
@@ -43,6 +44,7 @@ export default function FloatingContactButtons() {
                 href={button.href}
                 target={button.id === 'whatsapp' ? '_blank' : undefined}
                 rel={button.id === 'whatsapp' ? 'noopener noreferrer' : undefined}
+                onClick={() => trackTikTokEvent('Contact', { channel: button.id, location: 'floating_widget' })}
                 initial={{ opacity: 0, scale: 0.5, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.5, y: 20 }}

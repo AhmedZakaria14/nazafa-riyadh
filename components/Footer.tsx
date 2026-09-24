@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { trackTikTokEvent } from '@/lib/tiktok';
 
 export default function Footer() {
   return (
@@ -24,10 +27,23 @@ export default function Footer() {
           <h4 className="text-xl font-semibold mb-4">تواصل معنا</h4>
           <ul className="space-y-2 text-gray-400">
             <li className="flex items-center gap-2">
-              <a href="tel:0575386029" className="hover:text-white transition-colors" dir="ltr">0575386029</a> 📞
+              <a 
+                href="tel:0575386029" 
+                onClick={() => trackTikTokEvent('Contact', { channel: 'phone', location: 'footer' })}
+                className="hover:text-white transition-colors" 
+                dir="ltr"
+              >
+                0575386029
+              </a> 📞
             </li>
             <li>
-              <a href="https://api.whatsapp.com/send/?phone=966575386029" target="_blank" rel="noopener noreferrer" className="hover:text-green-400 transition-colors">
+              <a 
+                href="https://api.whatsapp.com/send/?phone=966575386029" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                onClick={() => trackTikTokEvent('Contact', { channel: 'whatsapp', location: 'footer' })}
+                className="hover:text-green-400 transition-colors"
+              >
                 تواصل معنا عبر واتساب 💬
               </a>
             </li>

@@ -19,6 +19,7 @@ import {
   ShieldCheck,
   Zap
 } from 'lucide-react';
+import { trackTikTokEvent } from '@/lib/tiktok';
 
 interface PackageItem {
   id: string;
@@ -220,6 +221,7 @@ export default function LandingPageContent() {
             <span className="text-slate-500">•</span>
             <a 
               href={`tel:${phone}`} 
+              onClick={() => trackTikTokEvent('Contact', { channel: 'phone', location: 'landing_top_bar' })}
               className="text-amber-400 font-bold hover:text-white font-mono transition-colors flex items-center gap-1.5" 
               dir="ltr"
             >
@@ -267,6 +269,7 @@ export default function LandingPageContent() {
               <a
                 id="hero-header-call-btn"
                 href={`tel:${phone}`}
+                onClick={() => trackTikTokEvent('Contact', { channel: 'phone', location: 'landing_hero_header' })}
                 className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold transition-all shadow-sm"
                 title="اتصال هاتفي مباشر"
               >
@@ -293,7 +296,7 @@ export default function LandingPageContent() {
             </h1>
 
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto mb-6">
-              نقدم لك أعلى معايير النظافة والتعقيم الفندقي بأيدي عمالة نظامية مدربة ومعدات ألمانية متطورة، مع التزام تام بالأسعار المحددة ومعاينة مجانية قبل الدفع. للحجز والاستفسار المباشر: <a href={`tel:${phone}`} className="font-bold text-blue-700 hover:text-blue-900 hover:underline font-mono inline-block" dir="ltr">{phone}</a>
+              نقدم لك أعلى معايير النظافة والتعقيم الفندقي بأيدي عمالة نظامية مدربة ومعدات ألمانية متطورة، مع التزام تام بالأسعار المحددة ومعاينة مجانية قبل الدفع. للحجز والاستفسار المباشر: <a href={`tel:${phone}`} onClick={() => trackTikTokEvent('Contact', { channel: 'phone', location: 'landing_hero_desc' })} className="font-bold text-blue-700 hover:text-blue-900 hover:underline font-mono inline-block" dir="ltr">{phone}</a>
             </p>
 
             {/* إحصائيات الثقة */}
@@ -397,6 +400,20 @@ export default function LandingPageContent() {
                       href={waUrl}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => {
+                        trackTikTokEvent('InitiateCheckout', {
+                          content_type: 'product',
+                          content_id: pkg.id,
+                          content_name: pkg.name,
+                          value: pkg.price,
+                          currency: 'SAR'
+                        });
+                        trackTikTokEvent('Contact', {
+                          channel: 'whatsapp',
+                          service: pkg.name,
+                          price: pkg.price
+                        });
+                      }}
                       className={`w-full py-3.5 px-4 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 shadow-sm transition-all duration-200 cursor-pointer ${
                         pkg.featured
                           ? 'bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white shadow-emerald-600/20'
@@ -519,6 +536,11 @@ export default function LandingPageContent() {
                   href={createWhatsAppUrl(srv.name, srv.price)}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackTikTokEvent('Contact', {
+                    channel: 'whatsapp',
+                    service: srv.name,
+                    price: srv.price
+                  })}
                   className="w-full py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 border border-slate-200 text-xs font-bold text-slate-800 flex items-center justify-between transition-colors"
                 >
                   <span>طلب الخدمة عبر واتساب</span>
@@ -627,6 +649,7 @@ export default function LandingPageContent() {
             <a
               id="cta-large-phone-number"
               href={`tel:${phone}`}
+              onClick={() => trackTikTokEvent('Contact', { channel: 'phone', location: 'landing_direct_phone' })}
               className="text-3xl sm:text-4xl font-black text-amber-400 hover:text-white font-mono transition-colors tracking-wide inline-block"
               dir="ltr"
             >
@@ -641,6 +664,7 @@ export default function LandingPageContent() {
             <a
               id="cta-call-btn"
               href={`tel:${phone}`}
+              onClick={() => trackTikTokEvent('Contact', { channel: 'phone', location: 'landing_direct_cta' })}
               className="w-full sm:w-1/2 py-3.5 px-4 rounded-xl bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-slate-950 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow transition-colors"
             >
               <Phone className="w-4 h-4" />
@@ -651,6 +675,7 @@ export default function LandingPageContent() {
               href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent('السلام عليكم، أود الاستفسار عن باقات التنظيف الفندقية وحجز موعد.')}`}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackTikTokEvent('Contact', { channel: 'whatsapp', location: 'landing_direct_cta' })}
               className="w-full sm:w-1/2 py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow transition-colors"
             >
               <MessageCircle className="w-4 h-4 fill-white" />
@@ -729,6 +754,18 @@ export default function LandingPageContent() {
             href={createWhatsAppUrl('تنظيف شقة كاملة', '299 ريال')}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => {
+              trackTikTokEvent('InitiateCheckout', {
+                content_type: 'product',
+                content_name: 'تنظيف شقة كاملة',
+                value: 299,
+                currency: 'SAR'
+              });
+              trackTikTokEvent('Contact', {
+                channel: 'whatsapp',
+                location: 'fixed_bottom_bar'
+              });
+            }}
             className="flex-1 py-3 px-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md shadow-emerald-600/20 transition-all cursor-pointer"
           >
             <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 fill-white shrink-0" />
@@ -737,6 +774,7 @@ export default function LandingPageContent() {
           <a
             id="fixed-action-call"
             href={`tel:${phone}`}
+            onClick={() => trackTikTokEvent('Contact', { channel: 'phone', location: 'fixed_bottom_bar' })}
             className="flex-1 py-3 px-4 rounded-2xl bg-slate-900 hover:bg-slate-800 active:bg-slate-950 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
           >
             <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 shrink-0" />

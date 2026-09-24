@@ -1,6 +1,9 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Phone, MessageCircle } from 'lucide-react';
+import { trackTikTokEvent } from '@/lib/tiktok';
 
 export default function Header() {
   return (
@@ -11,6 +14,7 @@ export default function Header() {
           <a
             id="header-call-btn"
             href="tel:0575386029"
+            onClick={() => trackTikTokEvent('Contact', { channel: 'phone', location: 'header' })}
             className="bg-slate-900 hover:bg-slate-800 text-amber-400 px-3 py-2 rounded-lg font-bold text-xs sm:text-sm transition-colors flex items-center gap-1.5 shadow-sm"
             title="اتصال هاتفي: 0575386029"
           >
@@ -22,6 +26,7 @@ export default function Header() {
             href="https://api.whatsapp.com/send/?phone=966575386029"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackTikTokEvent('Contact', { channel: 'whatsapp', location: 'header' })}
             className="bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg font-medium text-xs sm:text-sm transition-colors flex items-center gap-1.5 shadow-sm"
           >
             <MessageCircle className="w-4 h-4 fill-white" />
