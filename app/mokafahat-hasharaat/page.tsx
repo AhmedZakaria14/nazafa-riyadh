@@ -4,33 +4,33 @@ import CTAButtons from '@/components/CTAButtons';
 import { CheckCircle2, Home, Building2, Bug, Headset } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'مكافحة الحشرات والقوارض بالرياض | شركة أجواء',
-  description: 'مكافحة حشرات احترافية بالرياض من شركة أجواء. إبادة نهائية للحشرات الزاحفة والطائرة والقوارض بمبيدات آمنة. اتصل: 0533263551',
-  keywords: 'مكافحة حشرات الرياض, رش مبيدات بالرياض, شركة مكافحة حشرات, إبادة حشرات, مكافحة النمل الأبيض, مكافحة صراصير بالرياض, مكافحة بق الفراش, رش دفان',
+  title: 'مكافحة الحشرات والقوارض بالرياض | اتصل 0575386029 | شركة أجواء',
+  description: 'مكافحة حشرات احترافية بالرياض من شركة أجواء. إبادة نهائية للحشرات الزاحفة والطائرة والقوارض بمبيدات آمنة ومصرحة. اتصل الآن: 0575386029',
+  keywords: 'مكافحة حشرات الرياض, رش مبيدات بالرياض, شركة مكافحة حشرات, إبادة حشرات, مكافحة النمل الأبيض, مكافحة صراصير بالرياض, مكافحة بق الفراش, رش دفان, رقم مكافحة حشرات 0575386029, 0575386029',
   alternates: {
     canonical: 'https://cleanajwa.com/mokafahat-hasharaat',
   },
   openGraph: {
-    title: 'مكافحة الحشرات والقوارض بالرياض | شركة أجواء',
-    description: 'مكافحة حشرات احترافية بالرياض من شركة أجواء. إبادة نهائية للحشرات الزاحفة والطائرة والقوارض بمبيدات آمنة.',
+    title: 'مكافحة الحشرات والقوارض بالرياض | اتصل: 0575386029 | شركة أجواء',
+    description: 'مكافحة حشرات احترافية بالرياض من شركة أجواء. إبادة نهائية للحشرات الزاحفة والطائرة والقوارض بمبيدات آمنة. اتصل: 0575386029',
     url: 'https://cleanajwa.com/mokafahat-hasharaat',
     siteName: 'شركة أجواء',
     locale: 'ar_SA',
     type: 'website',
     images: [
       {
-        url: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783584134/Professional-Pest-Control-Technician-1_wajt1x.webp',
+        url: 'https://images.unsplash.com/photo-1584467735871-8e85353a8413?q=80&w=2070&auto=format&fit=crop',
         width: 1200,
         height: 630,
-        alt: 'مكافحة الحشرات والقوارض بالرياض',
+        alt: 'مكافحة الحشرات والقوارض بالرياض - 0575386029',
       }
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'مكافحة الحشرات والقوارض بالرياض | شركة أجواء',
-    description: 'مكافحة حشرات احترافية بالرياض من شركة أجواء. إبادة نهائية للحشرات الزاحفة والطائرة والقوارض بمبيدات آمنة.',
-    images: ['https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783584134/Professional-Pest-Control-Technician-1_wajt1x.webp'],
+    title: 'مكافحة الحشرات والقوارض بالرياض | اتصل: 0575386029 | شركة أجواء',
+    description: 'مكافحة حشرات احترافية بالرياض من شركة أجواء. إبادة نهائية للحشرات الزاحفة والطائرة والقوارض بمبيدات آمنة. اتصل: 0575386029',
+    images: ['https://images.unsplash.com/photo-1584467735871-8e85353a8413?q=80&w=2070&auto=format&fit=crop'],
   }
 };
 
@@ -44,7 +44,7 @@ export default function MokafahatHasharaatPage() {
     provider: {
       '@type': 'LocalBusiness',
       name: 'شركة أجواء للنظافة والتعقيم الشامل',
-      telephone: '0533263551',
+      telephone: '0575386029',
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'الرياض',
@@ -96,7 +96,7 @@ export default function MokafahatHasharaatPage() {
         <section className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center py-16">
           <div>
             <Image
-              src="https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783584134/Professional-Pest-Control-Technician-1_wajt1x.webp"
+              src="https://images.unsplash.com/photo-1584467735871-8e85353a8413?q=80&w=2070&auto=format&fit=crop"
               alt="خدمة مكافحة الحشرات الاحترافية من شركة أجواء باستخدام أحدث التقنيات الآمنة في الرياض"
               width={800}
               height={600}
@@ -162,7 +162,7 @@ export default function MokafahatHasharaatPage() {
           </div>
           <div className="order-1 md:order-2">
             <Image
-              src="https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783584134/16345-pest-control_kpx7u9.avif"
+              src="https://images.unsplash.com/photo-1585421514284-efb74c2b69ba?q=80&w=2070&auto=format&fit=crop"
               alt="شركة مكافحة حشرات بالرياض — أجواء للتخلص النهائي من الآفات والقوارض بطرق صحية"
               width={800}
               height={600}

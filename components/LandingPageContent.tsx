@@ -185,7 +185,7 @@ const FAQS = [
   },
   {
     q: 'كيف يمكنني تأكيد الموعد؟ وهل يلزم دفع عربون مسبق؟',
-    a: 'لا نطلب أي دفع مسبق! يمكنك الحجز فوراً عبر الضغط على زر الواتساب أو الاتصال على 0533263551، وتأكيد الموعد المناسب لك، والدفع يكون بعد إتمام العمل ومعاينتك الميدانية.'
+    a: 'لا نطلب أي دفع مسبق! يمكنك الحجز فوراً عبر الضغط على زر الواتساب أو الاتصال على 0575386029، وتأكيد الموعد المناسب لك، والدفع يكون بعد إتمام العمل ومعاينتك الميدانية.'
   },
   {
     q: 'ما هو الضمان الذهبي الذي تقدمونه؟',
@@ -196,8 +196,8 @@ const FAQS = [
 export default function LandingPageContent() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  const phone = '0533263551';
-  const whatsappNumber = '966533263551';
+  const phone = '0575386029';
+  const whatsappNumber = '966575386029';
 
   const createWhatsAppUrl = (serviceName: string, priceStr: string) => {
     const text = `السلام عليكم، أود حجز ${serviceName} بسعر ${priceStr} المعلن في شركة أجواء.`;
@@ -220,10 +220,11 @@ export default function LandingPageContent() {
             <span className="text-slate-500">•</span>
             <a 
               href={`tel:${phone}`} 
-              className="text-amber-400 font-bold hover:text-white font-mono transition-colors" 
+              className="text-amber-400 font-bold hover:text-white font-mono transition-colors flex items-center gap-1.5" 
               dir="ltr"
             >
-              {phone}
+              <Phone className="w-3.5 h-3.5" />
+              <span>{phone}</span>
             </a>
           </div>
         </div>
@@ -258,9 +259,20 @@ export default function LandingPageContent() {
               </div>
             </div>
 
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs text-blue-900 font-medium">
-              <MapPin className="w-3.5 h-3.5 text-blue-600" />
-              <span>تغطية فورية لجميع أحياء الرياض</span>
+            <div className="flex flex-wrap items-center gap-2">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs text-blue-900 font-medium">
+                <MapPin className="w-3.5 h-3.5 text-blue-600" />
+                <span>تغطية فورية لكافة أحياء الرياض</span>
+              </div>
+              <a
+                id="hero-header-call-btn"
+                href={`tel:${phone}`}
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold transition-all shadow-sm"
+                title="اتصال هاتفي مباشر"
+              >
+                <Phone className="w-3.5 h-3.5" />
+                <span dir="ltr">{phone}</span>
+              </a>
             </div>
           </div>
 
@@ -281,7 +293,7 @@ export default function LandingPageContent() {
             </h1>
 
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto mb-6">
-              نقدم لك أعلى معايير النظافة والتعقيم الفندقي بأيدي عمالة نظامية مدربة ومعدات ألمانية متطورة، مع التزام تام بالأسعار المحددة ومعاينة مجانية قبل الدفع.
+              نقدم لك أعلى معايير النظافة والتعقيم الفندقي بأيدي عمالة نظامية مدربة ومعدات ألمانية متطورة، مع التزام تام بالأسعار المحددة ومعاينة مجانية قبل الدفع. للحجز والاستفسار المباشر: <a href={`tel:${phone}`} className="font-bold text-blue-700 hover:text-blue-900 hover:underline font-mono inline-block" dir="ltr">{phone}</a>
             </p>
 
             {/* إحصائيات الثقة */}

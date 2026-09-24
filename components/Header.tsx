@@ -1,19 +1,30 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { Phone, MessageCircle } from 'lucide-react';
 
 export default function Header() {
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-4 flex flex-wrap items-center justify-between">
-        {/* زر واتساب يمين */}
-        <div className="flex-shrink-0 order-1 md:order-3">
+      <div className="container mx-auto px-4 py-3 md:py-4 flex flex-wrap items-center justify-between gap-2">
+        {/* أزرار الاتصال والواتساب يمين */}
+        <div className="flex-shrink-0 order-1 md:order-3 flex items-center gap-2">
           <a
-            href="https://api.whatsapp.com/send/?phone=966533263551"
+            id="header-call-btn"
+            href="tel:0575386029"
+            className="bg-slate-900 hover:bg-slate-800 text-amber-400 px-3 py-2 rounded-lg font-bold text-xs sm:text-sm transition-colors flex items-center gap-1.5 shadow-sm"
+            title="اتصال هاتفي: 0575386029"
+          >
+            <Phone className="w-4 h-4 text-amber-400" />
+            <span dir="ltr">0575386029</span>
+          </a>
+          <a
+            id="header-whatsapp-btn"
+            href="https://api.whatsapp.com/send/?phone=966575386029"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center gap-2"
+            className="bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg font-medium text-xs sm:text-sm transition-colors flex items-center gap-1.5 shadow-sm"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-message-circle"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+            <MessageCircle className="w-4 h-4 fill-white" />
             <span className="hidden sm:inline">واتساب</span>
           </a>
         </div>
