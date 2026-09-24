@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next';
 import { Tajawal } from 'next/font/google';
-import Script from 'next/script';
 import './globals.css';
 import ClientLayout from '@/components/ClientLayout';
 
@@ -84,9 +83,7 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" className={tajawal.variable}>
       <head>
-        <Script
-          id="tiktok-pixel"
-          strategy="afterInteractive"
+        <script
           dangerouslySetInnerHTML={{
             __html: `
 !function (w, d, t) {
