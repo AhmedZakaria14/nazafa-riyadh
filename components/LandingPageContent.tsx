@@ -208,7 +208,7 @@ const FAQS = [
   },
   {
     q: 'كيف يمكنني تأكيد الموعد؟ وهل يلزم دفع عربون مسبق؟',
-    a: 'لا نطلب أي دفع مسبق! يمكنك الحجز فوراً عبر الضغط على زر الواتساب أو الاتصال على 0575386029، وتأكيد الموعد المناسب لك، والدفع يكون بعد إتمام العمل ومعاينتك الميدانية.'
+    a: 'لا نطلب أي دفع مسبق! يمكنك الحجز فوراً عبر الضغط على زر الواتساب أو الاتصال على 01010742430، وتأكيد الموعد المناسب لك، والدفع يكون بعد إتمام العمل ومعاينتك الميدانية.'
   },
   {
     q: 'ما هو الضمان الذهبي الذي تقدمونه؟',
@@ -229,8 +229,8 @@ export default function LandingPageContent() {
   const [bookingDate, setBookingDate] = useState('');
   const [isSubmittingBooking, setIsSubmittingBooking] = useState(false);
 
-  const phone = '0575386029';
-  const whatsappNumber = '966575386029';
+  const phone = '01010742430';
+  const whatsappNumber = '201010742430';
 
   // 1. TikTok ViewContent Event on Landing Page Load
   useEffect(() => {
@@ -368,7 +368,7 @@ export default function LandingPageContent() {
             <span>عمالة نظامية • ضمان 100%</span>
             <span className="text-slate-500">•</span>
             <a 
-              href={`tel:${phone}`} 
+              href={`tel:+201010742430`}
               onClick={() => trackTikTokEvent('Contact', { channel: 'phone', location: 'landing_top_bar' })}
               className="text-amber-400 font-bold hover:text-white font-mono transition-colors flex items-center gap-1.5" 
               dir="ltr"
@@ -416,7 +416,7 @@ export default function LandingPageContent() {
               </div>
               <a
                 id="hero-header-call-btn"
-                href={`tel:${phone}`}
+                href={`tel:+201010742430`}
                 onClick={() => trackTikTokEvent('Contact', { channel: 'phone', location: 'landing_hero_header' })}
                 className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold transition-all shadow-sm"
                 title="اتصال هاتفي مباشر"
@@ -444,7 +444,7 @@ export default function LandingPageContent() {
             </h1>
 
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto mb-6">
-              نقدم لك أعلى معايير النظافة والتعقيم الفندقي بأيدي عمالة نظامية مدربة ومعدات ألمانية متطورة، مع التزام تام بالأسعار المحددة ومعاينة مجانية قبل الدفع. للحجز والاستفسار المباشر: <a href={`tel:${phone}`} onClick={() => trackTikTokEvent('Contact', { channel: 'phone', location: 'landing_hero_desc' })} className="font-bold text-blue-700 hover:text-blue-900 hover:underline font-mono inline-block" dir="ltr">{phone}</a>
+              نقدم لك أعلى معايير النظافة والتعقيم الفندقي بأيدي عمالة نظامية مدربة ومعدات ألمانية متطورة، مع التزام تام بالأسعار المحددة ومعاينة مجانية قبل الدفع. للحجز والاستفسار المباشر: <a href={`tel:+201010742430`} onClick={() => trackTikTokEvent('Contact', { channel: 'phone', location: 'landing_hero_desc' })} className="font-bold text-blue-700 hover:text-blue-900 hover:underline font-mono inline-block" dir="ltr">{phone}</a>
             </p>
 
             {/* إحصائيات الثقة */}
@@ -949,7 +949,7 @@ export default function LandingPageContent() {
           <div className="mb-6">
             <a
               id="cta-large-phone-number"
-              href={`tel:${phone}`}
+              href={`tel:+201010742430`}
               onClick={() => trackTikTokEvent('Contact', { channel: 'phone', location: 'landing_direct_phone' })}
               className="text-3xl sm:text-4xl font-black text-amber-400 hover:text-white font-mono transition-colors tracking-wide inline-block"
               dir="ltr"
@@ -964,7 +964,7 @@ export default function LandingPageContent() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
             <a
               id="cta-call-btn"
-              href={`tel:${phone}`}
+              href={`tel:+201010742430`}
               onClick={() => trackTikTokEvent('Contact', { channel: 'phone', location: 'landing_direct_cta' })}
               className="w-full sm:w-1/2 py-3.5 px-4 rounded-xl bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-slate-950 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow transition-colors"
             >
@@ -1082,7 +1082,7 @@ export default function LandingPageContent() {
           </a>
           <a
             id="fixed-action-call"
-            href={`tel:${phone}`}
+            href={`tel:+201010742430`}
             onClick={() => trackTikTokEvent('Contact', { channel: 'phone', location: 'fixed_bottom_bar' })}
             className="flex-1 py-3 px-4 rounded-2xl bg-slate-900 hover:bg-slate-800 active:bg-slate-950 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
           >
