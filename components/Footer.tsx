@@ -28,17 +28,17 @@ export default function Footer() {
           <ul className="space-y-2 text-gray-400">
             <li className="flex items-center gap-2">
               <a 
-                href="tel:0575386029" 
+                href="tel:+201010742430"
                 onClick={() => trackTikTokEvent('Contact', { channel: 'phone', location: 'footer' })}
                 className="hover:text-white transition-colors" 
                 dir="ltr"
               >
-                0575386029
+                01010742430
               </a> 📞
             </li>
             <li>
               <a 
-                href="https://api.whatsapp.com/send/?phone=966575386029" 
+                href="https://api.whatsapp.com/send/?phone=201010742430"
                 target="_blank" 
                 rel="noopener noreferrer" 
                 onClick={() => trackTikTokEvent('Contact', { channel: 'whatsapp', location: 'footer' })}
