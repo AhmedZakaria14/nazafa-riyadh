@@ -6,15 +6,15 @@ import TikTokTracker from '@/components/TikTokTracker';
 import { ArrowLeft } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'شركة أجواء للنظافة والتعقيم الشامل بالرياض | اتصل: 0575386029',
-  description: 'شركة أجواء للنظافة والتعقيم بالرياض. خدمات تنظيف منازل، فلل، شركات ومكافحة حشرات بأحدث التقنيات وأفضل الأسعار. اتصل بنا الآن: 0575386029',
-  keywords: 'شركة تنظيف بالرياض, تنظيف منازل الرياض, تنظيف فلل الرياض, شركة تنظيف, مكافحة حشرات الرياض, تعقيم شركات, جلي رخام, تنظيف كنب, غسيل سجاد بالرياض, شركة تعقيم منازل, رقم شركة تنظيف 0575386029, 0575386029',
+  title: 'شركة أجواء للنظافة والتعقيم الشامل بالرياض | اتصل: 01010742430',
+  description: 'شركة أجواء للنظافة والتعقيم بالرياض. خدمات تنظيف منازل، فلل، شركات ومكافحة حشرات بأحدث التقنيات وأفضل الأسعار. اتصل بنا الآن: 01010742430',
+  keywords: 'شركة تنظيف بالرياض, تنظيف منازل الرياض, تنظيف فلل الرياض, شركة تنظيف, مكافحة حشرات الرياض, تعقيم شركات, جلي رخام, تنظيف كنب, غسيل سجاد بالرياض, شركة تعقيم منازل, رقم شركة تنظيف 01010742430, 01010742430',
   alternates: {
     canonical: 'https://cleanajwa.com',
   },
   openGraph: {
-    title: 'شركة أجواء للنظافة والتعقيم الشامل بالرياض | 0575386029',
-    description: 'شركة أجواء للنظافة والتعقيم بالرياض. خدمات تنظيف منازل، فلل، شركات ومكافحة حشرات بأحدث التقنيات وأفضل الأسعار. اتصل: 0575386029',
+    title: 'شركة أجواء للنظافة والتعقيم الشامل بالرياض | 01010742430',
+    description: 'شركة أجواء للنظافة والتعقيم بالرياض. خدمات تنظيف منازل، فلل، شركات ومكافحة حشرات بأحدث التقنيات وأفضل الأسعار. اتصل: 01010742430',
     url: 'https://cleanajwa.com',
     siteName: 'شركة أجواء',
     locale: 'ar_SA',
@@ -24,14 +24,14 @@ export const metadata: Metadata = {
         url: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop',
         width: 1200,
         height: 630,
-        alt: 'شركة أجواء لخدمات التنظيف بالرياض - 0575386029',
+        alt: 'شركة أجواء لخدمات التنظيف بالرياض - 01010742430',
       }
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'شركة أجواء للنظافة والتعقيم الشامل بالرياض | 0575386029',
-    description: 'شركة أجواء للنظافة والتعقيم بالرياض. خدمات تنظيف منازل، فلل، شركات ومكافحة حشرات بأحدث التقنيات وأفضل الأسعار. اتصل: 0575386029',
+    title: 'شركة أجواء للنظافة والتعقيم الشامل بالرياض | 01010742430',
+    description: 'شركة أجواء للنظافة والتعقيم بالرياض. خدمات تنظيف منازل، فلل، شركات ومكافحة حشرات بأحدث التقنيات وأفضل الأسعار. اتصل: 01010742430',
     images: ['https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop'],
   }
 };
@@ -46,7 +46,7 @@ export default function HomePage() {
       image: 'https://cleanajwa.com/logo.png',
       logo: 'https://cleanajwa.com/logo.png',
       url: 'https://cleanajwa.com',
-      telephone: '0575386029',
+      telephone: '+201010742430',
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'الرياض',
@@ -125,8 +125,8 @@ export default function HomePage() {
               <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-blue-100 text-sm md:text-base font-semibold tracking-wide shadow-lg">
                 <span>✨ الخيار الأول للنظافة في الرياض</span>
                 <span className="text-white/40">•</span>
-                <a href="tel:0575386029" className="text-amber-300 hover:text-white font-mono font-bold transition-colors" dir="ltr">
-                  0575386029
+                <a href="tel:+201010742430" className="text-amber-300 hover:text-white font-mono font-bold transition-colors" dir="ltr">
+                  01010742430
                 </a>
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-white drop-shadow-lg">
