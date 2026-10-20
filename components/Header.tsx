@@ -13,17 +13,17 @@ export default function Header() {
         <div className="flex-shrink-0 order-1 md:order-3 flex items-center gap-2">
           <a
             id="header-call-btn"
-            href="tel:0575386029"
+            href="tel:+201010742430"
             onClick={() => trackTikTokEvent('Contact', { channel: 'phone', location: 'header' })}
             className="bg-slate-900 hover:bg-slate-800 text-amber-400 px-3 py-2 rounded-lg font-bold text-xs sm:text-sm transition-colors flex items-center gap-1.5 shadow-sm"
-            title="اتصال هاتفي: 0575386029"
+            title="اتصال هاتفي: 01010742430"
           >
             <Phone className="w-4 h-4 text-amber-400" />
-            <span dir="ltr">0575386029</span>
+            <span dir="ltr">01010742430</span>
           </a>
           <a
             id="header-whatsapp-btn"
-            href="https://api.whatsapp.com/send/?phone=966575386029"
+            href="https://api.whatsapp.com/send/?phone=201010742430"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackTikTokEvent('Contact', { channel: 'whatsapp', location: 'header' })}
